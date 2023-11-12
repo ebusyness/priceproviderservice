@@ -1,4 +1,4 @@
-# Introduction and Goals of Price Provider Service
+# Introduction and Goals
 ## What and Why
 What is a price? A number and a currency symbol, right? Generally speaking, yes. But without the context, it's not entirely clear what it refers to. To which specific amount and unit is it designated? Is the price valid for a specific period of time only? Does the price refer to a promotion or a negotiated contract with a customer? Is VAT already included or not?
 As you can see, a price is always embedded in a quite complex context and requires a solution that takes these aspects into account.
@@ -29,3 +29,14 @@ This microservice based on the Spring Boot Framework would like to provide a fir
 | QG-01 | Correctness      | Always provide correct (at least the best fit) query results.                                                         |
 | QG-02 | Performance      | Horizontal scaling capabilities to meet growing data volume and traffic requirements.                                 |
 | QG-03 | Robustness       | The system shall work reliable under operating conditions especially under operating conditions. (Kubernets and Pods) |
+
+
+## Personal Goals and Motivation
+### Skills Enhancement and Exploration of new Technologies, Approaches, and Concepts
+One of the primary motivations behind the development of the Price Provider Service is to enhance my proficiency in my current technology stack, centered around Java and the Spring Boot Framework.
+By actively working on the design and implementation of this microservice, I want to deepen my understanding of the selected technologies especially the operational technology aspects (e.g. Docker & Kubernetes). I would like to further deepen my skills by carrying out analyses, the technical implementation as well as test installations and setups of selected integration scenarios.
+
+The Price Provider Service serves as a platform for me to explore and experiment with novel technologies, innovative approaches, and cutting-edge concepts.
+This exploration extends beyond the familiar boundaries of the current technology stack, allowing for the incorporation of new tools and methodologies that can contribute to the evolution and enrichment of the microservice architecture.
+
+Beyond its immediate objectives, the Price Provider Service stands as a testament to continuous learning. It is not just a microservice but a template for ongoing improvement and adaptation.
