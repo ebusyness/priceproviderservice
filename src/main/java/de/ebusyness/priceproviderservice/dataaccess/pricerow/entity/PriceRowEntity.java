@@ -1,5 +1,8 @@
 package de.ebusyness.priceproviderservice.dataaccess.pricerow.entity;
 
+import de.ebusyness.priceproviderservice.dataaccess.unit.entity.UnitEntity;
+import jakarta.persistence.*;
+
 import java.math.BigDecimal;
 import java.util.Currency;
 import java.util.Date;
@@ -9,14 +12,41 @@ public class PriceRowEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    private String pricedResourceId;
     private BigDecimal priceValue;
     private BigDecimal minQuantity;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "unit_symbol")
     private UnitEntity unit;
     private Currency currency;
     private Date validFrom;
     private Date validTo;
-    private String cutomerId;
-    private boolean net;
+    private String customerId;
+    private boolean taxIncluded;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public boolean isTaxIncluded() {
+        return taxIncluded;
+    }
+
+    public void setTaxIncluded(boolean taxIncluded) {
+        this.taxIncluded = taxIncluded;
+    }
+
+    public String getPricedResourceId() {
+        return pricedResourceId;
+    }
+
+    public void setPricedResourceId(String pricedResourceId) {
+        this.pricedResourceId = pricedResourceId;
+    }
 
     public BigDecimal getMinQuantity() {
         return minQuantity;
@@ -66,33 +96,39 @@ public class PriceRowEntity {
         this.validTo = validTo;
     }
 
-    public String getCutomerId() {
-        return cutomerId;
+    public String getCustomerId() {
+        return customerId;
     }
 
-    public void setCutomerId(String cutomerId) {
-        this.cutomerId = cutomerId;
+    public void setCustomerId(String customerId) {
+        this.customerId = customerId;
     }
 
-    public boolean isNet() {
-        return net;
+    @Transient
+    public String getUnitRef() {
+        return unit.getSymbol();
     }
 
-    public void setNet(boolean net) {
-        this.net = net;
+    @Transient
+    public void setUnitRef(String unitRef) {
+        UnitEntity unit = new UnitEntity();
+        unit.setSymbol(unitRef);
+        setUnit(unit);
     }
 
-    @java.lang.Override
-    public java.lang.String toString() {
+    @Override
+    public String toString() {
         return "PriceRowEntity{" +
-                "minQuantity=" + minQuantity +
-                ", unit=" + unit +
+                "id=" + id +
+                ", pricedResourceId='" + pricedResourceId + '\'' +
                 ", priceValue=" + priceValue +
+                ", minQuantity=" + minQuantity +
+                ", unit=" + unit +
                 ", currency=" + currency +
                 ", validFrom=" + validFrom +
                 ", validTo=" + validTo +
-                ", cutomerId='" + cutomerId + '\'' +
-                ", net=" + net +
+                ", customerId='" + customerId + '\'' +
+                ", taxIncluded=" + taxIncluded +
                 '}';
     }
 }

@@ -1,0 +1,72 @@
+[
+  {
+    "pricedResourceId": "PRD001",
+    "priceValue": 19.99,
+    "minQuantity": 1,
+    "unitRef": "piece",
+    "currency": "EUR",
+    "taxIncluded": true
+  },
+  {
+    "pricedResourceId": "PRD001",
+    "priceValue": 18.99,
+    "minQuantity": 10,
+    "unitRef": "piece",
+    "currency": "EUR",
+    "taxIncluded": true
+  },
+  {
+    "pricedResourceId": "PRD001",
+    "priceValue": 17.99,
+    "minQuantity": 1,
+    "unitRef": "piece",
+    "currency": "EUR",
+    "validFrom": "2024-01-01T00:00:00Z",
+    "validTo": "2024-12-31T23:59:59Z",
+    "taxIncluded": true
+  },
+  {
+    "pricedResourceId": "PRD001",
+    "priceValue": 16.99,
+    "minQuantity": 10,
+    "unitRef": "piece",
+    "currency": "EUR",
+    "validFrom": "2024-01-01T00:00:00Z",
+    "validTo": "2024-12-31T23:59:59Z",
+    "taxIncluded": true
+  },
+  {
+    "pricedResourceId": "PRD002",
+    "priceValue": 0.99,
+    "minQuantity": 100,
+    "unitRef": "g",
+    "currency": "EUR",
+    "taxIncluded": true
+  },
+  {
+    "pricedResourceId": "PRD002",
+    "priceValue": 0.89,
+    "minQuantity": 100,
+    "unitRef": "g",
+    "currency": "EUR",
+    "validFrom": "2024-02-01T00:00:00Z",
+    "validTo": "2024-12-31T23:59:59Z",
+    "taxIncluded": true
+  },
+  {
+    "pricedResourceId": "PRD003",
+    "priceValue": 1.99,
+    "minQuantity": 0.1,
+    "unitRef": "l",
+    "currency": "EUR",
+    "taxIncluded": true
+  },
+  {
+    "pricedResourceId": "PRD003",
+    "priceValue": 1.49,
+    "minQuantity": 1,
+    "unitRef": "l",
+    "currency": "EUR",
+    "taxIncluded": true
+  }
+]

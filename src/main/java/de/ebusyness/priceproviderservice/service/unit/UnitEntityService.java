@@ -2,20 +2,27 @@ package de.ebusyness.priceproviderservice.service.unit;
 
 import de.ebusyness.priceproviderservice.dataaccess.unit.UnitEntityRepository;
 import de.ebusyness.priceproviderservice.dataaccess.unit.entity.UnitEntity;
+import de.ebusyness.priceproviderservice.service.commons.EntityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.w3c.dom.Entity;
 
 import java.util.List;
 import java.util.Optional;
 
 @Service
-public class UnitEntityService {
+public class UnitEntityService implements EntityService<UnitEntity> {
 
     @Autowired
     private UnitEntityRepository unitEntityRepository;
 
     // Create operation
-    public UnitEntity createUnit(UnitEntity unitEntity) {
+    @Override
+    public Class<UnitEntity> getTargetClass() {
+        return UnitEntity.class;
+    }
+
+    public UnitEntity save(UnitEntity unitEntity) {
         return unitEntityRepository.save(unitEntity);
     }
 

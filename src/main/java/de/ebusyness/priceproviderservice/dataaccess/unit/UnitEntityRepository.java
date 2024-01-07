@@ -6,5 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface UnitEntityRepository extends JpaRepository<UnitEntity, String> {
-    // You can define custom queries or methods specific to UnitEntity if needed
+
 }

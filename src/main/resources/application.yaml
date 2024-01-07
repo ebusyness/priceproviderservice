@@ -7,10 +7,14 @@ spring:
   jpa:
     database-platform: org.hibernate.dialect.H2Dialect
     open-in-view: false
-    show-sql: true          # Enable SQL logging
+    show-sql: false          # Enable SQL logging
   h2:
     console:
       enabled: true
-priceProviderService:
+price-provider-service:
   initialize:
-    dataFolder: "src/main/resources/initialize/data/"
+    data-folder: "src/main/resources/initialize/"
+    sample-data-on: true
+    entity:
+      price-row:
+        import-groups: EUR,USD
