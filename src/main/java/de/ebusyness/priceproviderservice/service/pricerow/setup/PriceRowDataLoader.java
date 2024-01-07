@@ -1,7 +1,6 @@
 package de.ebusyness.priceproviderservice.service.pricerow.setup;
 
 import de.ebusyness.priceproviderservice.dataaccess.pricerow.entity.PriceRowEntity;
-import de.ebusyness.priceproviderservice.service.commons.EntityService;
 import de.ebusyness.priceproviderservice.service.pricerow.PriceRowEntityService;
 import de.ebusyness.priceproviderservice.service.setup.AbstractSetupDataLoader;
 import de.ebusyness.priceproviderservice.service.setup.SetupDataLoader;
@@ -21,12 +20,6 @@ public class PriceRowDataLoader extends AbstractSetupDataLoader<PriceRowEntity> 
     @Autowired
     private PriceRowEntityService priceRowEntityService;
 
-    @Value("${price-provider-service.initialize.data-folder}")
-    private String dataFolder;
-
-    @Value("${price-provider-service.initialize.sample-data-on}")
-    private Boolean sampleDataOn;
-
     @Value("${price-provider-service.initialize.entity.price-row.import-groups}")
     private List<String> importGroups;
 
@@ -42,7 +35,7 @@ public class PriceRowDataLoader extends AbstractSetupDataLoader<PriceRowEntity> 
 
     @Override
     public void loadEssentialData() {
-        String essentialDataFolder = dataFolder + "essential/";
+        String essentialDataFolder = getDataFolder() + "essential/";
         for (String currency : importGroups) {
             importFile(essentialDataFolder + "price-rows." + currency + ".json");
         }
@@ -50,8 +43,8 @@ public class PriceRowDataLoader extends AbstractSetupDataLoader<PriceRowEntity> 
 
     @Override
     public void loadSampleData() {
-        String sampleDataFolder = dataFolder + "sample/";
-        if (sampleDataOn) {
+        String sampleDataFolder = getDataFolder() + "sample/";
+        if (getSampleDataOn()) {
             for (String currency : importGroups) {
                 importFile(sampleDataFolder + "price-rows." + currency + ".json");
             }
