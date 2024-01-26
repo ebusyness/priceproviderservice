@@ -19,6 +19,7 @@ public class PriceRowConverter extends AbstractConverter<PriceRowEntity, PriceRo
         target.setPricedResourceId(source.getPricedResourceId());
         target.setValidFrom(source.getValidFrom());
         target.setValidTo(source.getValidTo());
+        target.setTaxIncluded(source.isTaxIncluded());
     }
 
     @Override

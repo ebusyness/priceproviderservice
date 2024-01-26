@@ -17,4 +17,4 @@ price-provider-service:
     sample-data-on: true
     entity:
       price-row:
-        import-groups: EUR,USD
+        import-groups: EUR,USD,EUR.customer-a

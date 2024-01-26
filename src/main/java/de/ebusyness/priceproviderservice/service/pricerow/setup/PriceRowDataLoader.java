@@ -36,8 +36,8 @@ public class PriceRowDataLoader extends AbstractSetupDataLoader<PriceRowEntity> 
     @Override
     public void loadEssentialData() {
         String essentialDataFolder = getDataFolder() + "essential/";
-        for (String currency : importGroups) {
-            importFile(essentialDataFolder + "price-rows." + currency + ".json");
+        for (String importGroup : importGroups) {
+            importFile(essentialDataFolder + "price-rows." + importGroup + ".json");
         }
     }
 
@@ -45,8 +45,8 @@ public class PriceRowDataLoader extends AbstractSetupDataLoader<PriceRowEntity> 
     public void loadSampleData() {
         String sampleDataFolder = getDataFolder() + "sample/";
         if (getSampleDataOn()) {
-            for (String currency : importGroups) {
-                importFile(sampleDataFolder + "price-rows." + currency + ".json");
+            for (String importGroup : importGroups) {
+                importFile(sampleDataFolder + "price-rows." + importGroup + ".json");
             }
         }
     }
