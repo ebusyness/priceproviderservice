@@ -2,6 +2,8 @@ package de.ebusyness.priceproviderservice.dataaccess.pricerow.entity;
 
 import de.ebusyness.priceproviderservice.dataaccess.unit.entity.UnitEntity;
 import jakarta.persistence.*;
+import org.springframework.format.annotation.DateTimeFormat;
+
 
 import java.math.BigDecimal;
 import java.util.Currency;
@@ -19,7 +21,9 @@ public class PriceRowEntity {
     @JoinColumn(name = "unit_symbol")
     private UnitEntity unit;
     private Currency currency;
+    @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
     private Date validFrom;
+    @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
     private Date validTo;
     private String customerId;
     private boolean taxIncluded;

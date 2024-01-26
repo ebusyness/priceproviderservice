@@ -2,6 +2,7 @@ plugins {
     id 'org.springframework.boot' version '3.1.5'
     id 'io.spring.dependency-management' version '1.0.11.RELEASE'
     id 'java'
+    id 'com.ewerk.gradle.plugins.querydsl' version '1.0.10'
 }
 
 group = 'de.ebusyness.priceproviderservice'
@@ -10,15 +11,42 @@ version = '1.0.0'
 repositories {
     mavenCentral()
 }
-
 dependencies {
+
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     implementation 'org.springframework.boot:spring-boot-starter-web'
-    implementation 'javax.annotation:javax.annotation-api:1.3.2'
     implementation 'com.h2database:h2:2.2.224'
+
+    implementation 'io.github.openfeign.querydsl:querydsl-jpa:6.0.0.RC1'
+    compileOnly 'io.github.openfeign.querydsl:querydsl-apt:6.0.0.RC1'
+
+    annotationProcessor 'jakarta.persistence:jakarta.persistence-api'
+    annotationProcessor 'jakarta.annotation:jakarta.annotation-api'
 }
+
 
 java {
     sourceCompatibility = JavaVersion.VERSION_17
     targetCompatibility = JavaVersion.VERSION_17
+}
+
+querydsl {
+    library = 'io.github.openfeign.querydsl:querydsl-apt'
+    jpa = true
+}
+
+configurations {
+    querydsl.extendsFrom implementation, compileClasspath
+}
+
+compileQuerydsl {
+    options.annotationProcessorPath = configurations.querydsl
+}
+
+sourceSets {
+    main {
+        java {
+            srcDirs = ['src/main/java', 'src/querydsl/java']
+        }
+    }
 }

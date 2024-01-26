@@ -1,5 +1,7 @@
 package de.ebusyness.priceproviderservice.service.pricerow;
+import com.querydsl.core.types.Predicate;
 import de.ebusyness.priceproviderservice.dataaccess.pricerow.PriceRowEntityRepository;
+import de.ebusyness.priceproviderservice.facade.pricerow.data.PriceRowData;
 import de.ebusyness.priceproviderservice.service.commons.EntityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -30,7 +32,12 @@ public class PriceRowEntityService implements EntityService<PriceRowEntity> {
         return priceRowEntityRepository.findAll();
     }
 
+    public Iterable<PriceRowEntity> findPriceRows(Predicate predicate) {
+        return priceRowEntityRepository.findAll(predicate);
+    }
     public void deleteById(Long id) {
         priceRowEntityRepository.deleteById(id);
     }
+
+
 }
