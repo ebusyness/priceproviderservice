@@ -4,10 +4,9 @@ import de.ebusyness.priceproviderservice.dataaccess.unit.entity.UnitEntity;
 import jakarta.persistence.*;
 import org.springframework.format.annotation.DateTimeFormat;
 
-
 import java.math.BigDecimal;
+import java.time.OffsetDateTime;
 import java.util.Currency;
-import java.util.Date;
 
 @Entity
 public class PriceRowEntity {
@@ -22,9 +21,9 @@ public class PriceRowEntity {
     private UnitEntity unit;
     private Currency currency;
     @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
-    private Date validFrom;
+    private OffsetDateTime validFrom;
+    private OffsetDateTime validTo;
     @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
-    private Date validTo;
     private String customerId;
     private boolean taxIncluded;
 
@@ -84,19 +83,19 @@ public class PriceRowEntity {
         this.currency = currency;
     }
 
-    public Date getValidFrom() {
+    public OffsetDateTime getValidFrom() {
         return validFrom;
     }
 
-    public void setValidFrom(Date validFrom) {
+    public void setValidFrom(OffsetDateTime validFrom) {
         this.validFrom = validFrom;
     }
 
-    public Date getValidTo() {
+    public OffsetDateTime getValidTo() {
         return validTo;
     }
 
-    public void setValidTo(Date validTo) {
+    public void setValidTo(OffsetDateTime validTo) {
         this.validTo = validTo;
     }
 

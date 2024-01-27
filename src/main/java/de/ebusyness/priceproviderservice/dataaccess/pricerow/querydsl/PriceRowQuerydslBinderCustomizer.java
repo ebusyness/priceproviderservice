@@ -9,6 +9,7 @@ import org.springframework.data.querydsl.binding.QuerydslBinderCustomizer;
 import org.springframework.data.querydsl.binding.QuerydslBindings;
 
 import java.math.BigDecimal;
+import java.time.OffsetDateTime;
 import java.util.Collection;
 import java.util.Date;
 import java.util.Iterator;
@@ -30,9 +31,9 @@ public interface PriceRowQuerydslBinderCustomizer extends QuerydslBinderCustomiz
                     }
                 });
 
-        bindings.bind(root.validFrom).all((DateTimePath<Date> path, Collection<? extends Date> values) -> {
-            Iterator<? extends Date> it = values.iterator();
-            Date first = it.next();
+        bindings.bind(root.validFrom).all((DateTimePath<OffsetDateTime> path, Collection<? extends OffsetDateTime> values) -> {
+            Iterator<? extends OffsetDateTime> it = values.iterator();
+            OffsetDateTime first = it.next();
             if (values.size() >= 2) {
                 BooleanExpression isNull = path.isNull();
                 BooleanExpression isBefore = path.before(first);
@@ -42,11 +43,11 @@ public interface PriceRowQuerydslBinderCustomizer extends QuerydslBinderCustomiz
             }
         });
 
-        bindings.bind(root.validTo).all((DateTimePath<Date> path, Collection<? extends Date> values) -> {
-            Iterator<? extends Date> it = values.iterator();
-            Date first = it.next();
+        bindings.bind(root.validTo).all((DateTimePath<OffsetDateTime> path, Collection<? extends OffsetDateTime> values) -> {
+            Iterator<? extends OffsetDateTime> it = values.iterator();
+            OffsetDateTime first = it.next();
             if (values.size() >= 2) {
-                Date second = it.next();
+                OffsetDateTime second = it.next();
                 BooleanExpression isNull = path.isNull();
                 BooleanExpression isAfter = path.after(first);
                 return Optional.of(isNull.or(isAfter));
