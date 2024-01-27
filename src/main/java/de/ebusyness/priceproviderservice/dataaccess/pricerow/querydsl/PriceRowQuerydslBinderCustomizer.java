@@ -34,12 +34,11 @@ public interface PriceRowQuerydslBinderCustomizer extends QuerydslBinderCustomiz
             Iterator<? extends Date> it = values.iterator();
             Date first = it.next();
             if (values.size() >= 2) {
-                Date second = it.next();
                 BooleanExpression isNull = path.isNull();
-                BooleanExpression isAfter = path.after(first);
-                return Optional.of(isNull.or(isAfter));
+                BooleanExpression isBefore = path.before(first);
+                return Optional.of(isNull.or(isBefore));
             } else {
-                return Optional.of(path.after(first));  // for greater than searches
+                return Optional.of(path.eq(first).or(path.before(first)));
             }
         });
 
@@ -49,10 +48,10 @@ public interface PriceRowQuerydslBinderCustomizer extends QuerydslBinderCustomiz
             if (values.size() >= 2) {
                 Date second = it.next();
                 BooleanExpression isNull = path.isNull();
-                BooleanExpression isBefore = path.before(first);
-                return Optional.of(isNull.or(isBefore));
+                BooleanExpression isAfter = path.after(first);
+                return Optional.of(isNull.or(isAfter));
             } else {
-                return Optional.of(path.before(first));  // for greater than searches
+                return Optional.of(path.eq(first).or(path.after(first)));
             }
         });
 
