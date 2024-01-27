@@ -23,7 +23,7 @@
     "minQuantity": 1,
     "unitRef": "piece",
     "currency": "EUR",
-    "validFrom": "2024-01-01T00:00:00Z",
+    "validFrom": "2024-01-01T00:00:00.000Z",
     "validTo": "2024-12-31T23:59:59Z",
     "taxIncluded": true,
     "customerId" : "1234-5678-9012-customer-a"
@@ -34,8 +34,8 @@
     "minQuantity": 10,
     "unitRef": "piece",
     "currency": "EUR",
-    "validFrom": "2024-01-01T00:00:00Z",
-    "validTo": "2024-12-31T23:59:59Z",
+    "validFrom": "2024-01-01T00:00:00.000Z",
+    "validTo": "2024-12-31T23:59:59.000Z",
     "taxIncluded": true,
     "customerId" : "1234-5678-9012-customer-a"
   },
@@ -54,7 +54,7 @@
     "minQuantity": 100,
     "unitRef": "g",
     "currency": "EUR",
-    "validFrom": "2024-02-01T00:00:00Z",
+    "validFrom": "2024-01-02T00:00:00.000Z",
     "validTo": "2024-12-31T23:59:59Z",
     "taxIncluded": true,
     "customerId" : "1234-5678-9012-customer-a"

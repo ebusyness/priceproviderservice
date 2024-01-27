@@ -1,8 +1,10 @@
 package de.ebusyness.priceproviderservice.facade.pricerow.data;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.math.BigDecimal;
+import java.time.OffsetDateTime;
 import java.util.Currency;
-import java.util.Date;
 
 public class PriceRowData {
     private String pricedResourceId;
@@ -10,8 +12,8 @@ public class PriceRowData {
     private BigDecimal minQuantity;
     private String unitRef;
     private Currency currency;
-    private Date validFrom;
-    private Date validTo;
+    private OffsetDateTime validFrom;
+    private OffsetDateTime validTo;
     private String customerId;
     private boolean taxIncluded;
 
@@ -55,19 +57,21 @@ public class PriceRowData {
         this.currency = currency;
     }
 
-    public Date getValidFrom() {
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
+    public OffsetDateTime getValidFrom() {
         return validFrom;
     }
 
-    public void setValidFrom(Date validFrom) {
+    public void setValidFrom(OffsetDateTime validFrom) {
         this.validFrom = validFrom;
     }
 
-    public Date getValidTo() {
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
+    public OffsetDateTime getValidTo() {
         return validTo;
     }
 
-    public void setValidTo(Date validTo) {
+    public void setValidTo(OffsetDateTime validTo) {
         this.validTo = validTo;
     }
 
